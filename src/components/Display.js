@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { KeyContext } from '../context/KeyProvider';
 
 const Display = () => {
-	const key = useContext(KeyContext);
+    const state = useContext(KeyContext);
+    
+    console.log(state.history)
 
 	return (
-		<p>Current Key: { key.currentKey }</p>
+		<p>Current Key: { state.currentKey }</p>
 	)
 }
 
