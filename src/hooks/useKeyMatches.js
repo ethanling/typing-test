@@ -15,10 +15,14 @@ export const useKeyMatches = (test, currentKey, history) => {
             setMatches(prevState => ({
                 matches: [...prevState.matches, true]
             }))
-        } else if (currentKey) {
+        } else if (currentKey && currentKey !== "Backspace") {
             setMatches(prevState => ({
                 matches: [...prevState.matches, false]
             }));
+        } else if (currentKey === "Backspace") {
+            const tmp = matches.matches;
+            const deletedLastItem = tmp.slice(0, tmp.length - 1);
+            setMatches({ matches: deletedLastItem });
         }
     }
 

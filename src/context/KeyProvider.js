@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useKeyboard } from '../hooks/useKeyboard';
-import { useKeyMatches } from "../hooks/useKeyMatches";
+import { useKeyMatches } from '../hooks/useKeyMatches';
+import { useStartEndTest } from '../hooks/useStartEndTest';
+import { useTimer } from '../hooks/useTimer';
 import { allTests } from '../tests';
 
 export const KeyContext = React.createContext();
@@ -20,10 +22,14 @@ const KeyProvider = ({ children }) => {
     const [state, setState] = useState(initialState);
 
     const test = allTests[0];
-    // Return last key pressed and an array of all pressed keys
+    // Returns last key pressed and an array of all pressed keys
     const { currentKey, history } = useKeyboard();
     // Returns array of booleans comparing key pressed to test text
     const matches = useKeyMatches(test, currentKey, history);
+    // Sets timer when test is begun based on duration of test
+    const { time, timer} = useTimer(test.duration);
+    // Determines test's start/end state
+    const { isStarted, isComplete } = useStartEndTest(history, test, time, timer);
 
 	return (
         <KeyContext.Provider
@@ -31,7 +37,10 @@ const KeyProvider = ({ children }) => {
                 currentKey,
                 history,
                 matches,
-                test
+                test,
+                isComplete,
+                isStarted,
+                time
             }}
         >
             {children}
