@@ -1,32 +1,37 @@
 import React, { useState } from 'react';
 import { useKeyboard } from '../hooks/useKeyboard';
-import { useKeyHistory } from '../hooks/useKeyHistory';
+import { useKeyMatches } from "../hooks/useKeyMatches";
+import { allTests } from '../tests';
 
 export const KeyContext = React.createContext();
 
-const config = {
-    currentKey: '',
-    keyHistory: [],
+const initialState = {
+    currentKey: '', // Last key pressed
+    keyHistory: [], // All pressed keys
     test: {
-        text: '',
-        difficulty: 1,
-        duration: 0
+        text: '', // Test text
+        difficulty: 1, // 1 - Easy, 2 - Medium, 3 - Hard
+        duration: 0 // in minutes
     },
-    matches: [],
-
+    matches: [], // Correctly matched test letters to keys pressed
 }
 
 const KeyProvider = ({ children }) => {
-    const [state, setState] = useState(config)
+    const [state, setState] = useState(initialState);
 
-    const currentKey = useKeyboard();
-    const history = useKeyHistory(currentKey);
+    const test = allTests[0];
+    // Return last key pressed and an array of all pressed keys
+    const { currentKey, history } = useKeyboard();
+    // Returns array of booleans comparing key pressed to test text
+    const matches = useKeyMatches(test, currentKey, history);
 
 	return (
         <KeyContext.Provider
             value={{
                 currentKey,
-                history
+                history,
+                matches,
+                test
             }}
         >
             {children}
