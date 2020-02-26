@@ -1,23 +1,55 @@
-import React, { useContext } from 'react';
-import { KeyContext } from '../context/KeyProvider';
-import { StyledTestDisplay, StyledTestText } from '../styles/StyledTestDisplay';
-import TestText from './TestText';
-import CompletedTest from './CompletedTest';
+import React, { useContext, useEffect } from 'react';
+import { StateContext } from '../context/StateProvider';
+import { useKeyboard } from '../hooks/useKeyboard';
+import Letter from './Letter';
+import { StyledTestDisplay } from '../styles/StyledTest';
 
-const TestDisplay = () => {
-    const { isComplete } = useContext(KeyContext);
+const Test = () => {
+    const [{ test, history, isStarted }, dispatch] = useContext(StateContext);
 
-	return (
+    const currentKey = useKeyboard();
+    
+    const updateCurrentKey = () => {
+        dispatch({ type: 'setCurrentKey', newKey: currentKey })
+        updateHistory(currentKey);
+        startTest();
+    }
+
+    const matchKeysToTest = () => {
+        if (currentKey && currentKey === test.text[history.length]) {
+            dispatch({ type: "setMatch", setMatchBool: true });
+        } else {
+            dispatch({ type: "setMatch", setMatchBool: false });
+        }
+    };
+
+    const updateHistory = (key) => {
+        if (key) {
+            if (key !== 'Backspace') {
+                dispatch({ type: 'addToHistory', setHistory: key});
+                matchKeysToTest();
+            } else {
+                dispatch({ type: 'removeLastKey'});
+                dispatch({ type: "removeMatch" });
+            }
+        }
+    }
+
+    const startTest = () => {
+        if (currentKey && !isStarted) {
+            dispatch({ type: 'startEndTest', setStartState: true })
+        }
+    }
+
+    useEffect(() => {
+        updateCurrentKey();
+    }, [currentKey])
+
+    return (
         <StyledTestDisplay>
-            <div>
-                {isComplete ? 
-                    (<CompletedTest />) 
-                    : 
-                    (<TestText />)
-                }
-            </div>
+            <Letter />
         </StyledTestDisplay>
     );
 }
 
-export default TestDisplay;
+export default Test;

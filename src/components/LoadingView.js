@@ -1,6 +1,10 @@
-import React from 'react';
-import { StyledLoader } from '../styles/StyledLoader';
+import React from "react";
+import { StyledLoaderContainer, StyledLoader } from "../styles/StyledLoader";
 
-const LoadingView = () => <StyledLoader />;
+const LoadingView = () => (
+    <StyledLoaderContainer>
+        <StyledLoader />
+    </StyledLoaderContainer>
+);
 
 export default LoadingView;
