@@ -23,7 +23,7 @@ const StatsDisplay = () => {
         const correctChars = allTypedChars - incorrectChars;
         const typingAccuracy = Math.round((correctChars / allTypedChars) * 100);
         
-        return typingAccuracy
+        return typingAccuracy;
     }
 
     const getStats = () => {
