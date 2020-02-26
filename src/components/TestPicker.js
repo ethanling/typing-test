@@ -16,14 +16,18 @@ const TestPicker = () => {
         }
     }
 
+    // TODO:
+    // Add multiple categories to select from beyond just topic
+    // change displayed results with filter method
+
     return (
         <StyledTestContainer>
             Pick Test:
-            <StyledSelect name={'Choose Topic'} onChange={handleChange}>
+            <StyledSelect name={"Choose Topic"} onChange={handleChange}>
                 <StyledOption value="">Choose Topic</StyledOption>
-                <StyledOption value="Baseball">Baseball</StyledOption>
-                <StyledOption value="Basketball">Basketball</StyledOption>
-                <StyledOption value="Football">Football</StyledOption>
+                {allTests.map((a, i) => (
+                    <StyledOption key={i} value={a.test.name}>{a.test.name}</StyledOption>
+                ))}
             </StyledSelect>
         </StyledTestContainer>
     );

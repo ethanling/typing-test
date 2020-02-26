@@ -71,7 +71,7 @@ export const reducer = (state, action) => {
         case "setStats":
             return {
                 ...state,
-                stats: { wpm: action.setWpm, accuracy: action.setAccuracy }
+                stats: { wpm: action.setWPM, accuracy: action.setAccuracy }
             }
         case "reset":
             return {

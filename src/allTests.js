@@ -25,5 +25,14 @@ export const allTests = [
             duration: 1,
             wordCount: 57 // in minutes
         },
+    },
+    {
+        test: {
+            name: "Dev",
+            text: "Dev",
+            difficulty: 1, // 1 - Easy, 2 - Medium, 3 - Hard
+            duration: .1,
+            wordCount: 57 // in minutes
+        },
     }
 ]

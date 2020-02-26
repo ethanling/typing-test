@@ -1,4 +1,4 @@
- import React, { useContext } from "react";
+import React, { useContext } from "react";
 import TestDisplay from "../components/TestDisplay";
 import Clock from "../components/Clock";
 import RestartButton from "../components/RestartButton";
@@ -16,22 +16,23 @@ const TestView = () => (
         </StyledToolBar>
         <TestDisplay />
     </StyledTestContainer>
-)
+);
 
 const StatsView = () => (
     <StyledStatsContainer>
         <StatsDisplay />
     </StyledStatsContainer>
-)
+);
 
 const Test = () => {
     const [{ isComplete, test }] = useContext(StateContext);
 
-    return (
-        (test.text.length === 0)
-        ? (<TestPicker />)
-        : 
-        (!isComplete ? <TestView /> : <StatsView />)
+    return test.text.length === 0 ? (
+        <TestPicker />
+    ) : !isComplete ? (
+        <TestView />
+    ) : (
+        <StatsView />
     );
 };
 
