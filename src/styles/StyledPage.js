@@ -5,5 +5,6 @@ export const StyledApp = styled.div`
     min-width: 100vw;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 `;

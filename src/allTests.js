@@ -31,7 +31,7 @@ export const allTests = [
             name: "Dev",
             text: "Dev",
             difficulty: 1, // 1 - Easy, 2 - Medium, 3 - Hard
-            duration: .1,
+            duration: .05,
             wordCount: 57 // in minutes
         },
     }

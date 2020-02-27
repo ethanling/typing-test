@@ -17,6 +17,8 @@ const Letter = () => {
 
         if (matches[index] && index < matches.length) {
             letterStyles.backgroundColor = "#81c970";
+            letterStyles.backgroundImage =
+                "radial-gradient( circle 613px at 24.5% 36%,  rgba(165,233,138,1) 0%, #bbb 90% )";
         } else if (!matches[index] && index < matches.length) {
             letterStyles.backgroundColor = "#e2615f";
         } else {

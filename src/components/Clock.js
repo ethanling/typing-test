@@ -52,7 +52,11 @@ const Clock = () => {
         return `${displayMinutes}:${displaySeconds} // 0${test.duration}:00`;
     };
 
-    return <StyledClockText>{formatClock()}</StyledClockText>;
+    return (
+        <StyledClockText>
+            <section>{formatClock()}</section>
+        </StyledClockText>
+    );
 };
 
 export default Clock;

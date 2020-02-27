@@ -4,11 +4,9 @@ import StartButton from "../components/StartButton";
 
 const Home = () => {
     return (
-        <div>
-            <Splash />
-            Home
+        <Splash>
             <StartButton />
-        </div>
+        </Splash>
     );
 };
 
