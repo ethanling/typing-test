@@ -9,7 +9,7 @@ export const StyledLoaderContainer = styled.div`
 `;
 
 export const StyledLoader = styled.div`
-    border: 16px solid #374047;
+    border: 16px solid transparent;
     border-top: 16px solid #f1f1f1;
     border-radius: 50%;
     width: 120px;

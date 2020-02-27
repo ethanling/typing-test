@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { StateContext } from "../context/StateProvider";
 import { StyledStatsWrapper, StyledStatsHeader } from "../styles/StyledStats";
+import RestartButton from '../components/RestartButton';
 
 const StatsDisplay = () => {
     const [{ history, matches, stats }, dispatch] = useContext(StateContext);
@@ -44,6 +45,7 @@ const StatsDisplay = () => {
             <StyledStatsWrapper>
                 <p>Words Per Minute: {stats.wpm}</p>
                 <p>Accuracy: {stats.accuracy + "%"}</p>
+                <RestartButton text={'Try Again'} />
             </StyledStatsWrapper>
         </>
     );

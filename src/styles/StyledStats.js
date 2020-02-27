@@ -10,7 +10,7 @@ export const StyledStatsContainer = styled.div`
 
 export const StyledStatsWrapper = styled.div`
     background: #f1f1f1;
-    width: 70vw;
+    width: 50vw;
     padding: 20px;
     display: flex;
     justify-content: center;

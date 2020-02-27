@@ -12,7 +12,7 @@ export const StyledTestDisplay = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 75vw;
+    max-width: 50vw;
 `;
 
 export const StyledToolBar = styled.div`
@@ -47,7 +47,7 @@ export const StyledLetter = styled.span`
 export const StyledClockText = styled.span`
     font-family: "Courier Prime", "Courier New", Courier, monospace;
     font-weight: bold;
-    flex: 1;
+    flex: 1;\
     font-size: 1.4em;
     color: #f1f1f1;
     display: flex;
