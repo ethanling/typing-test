@@ -7,7 +7,7 @@ const Letter = () => {
 
     const testTextArr = test.text.split("");
 
-    const setLetterStyles = index => {
+    const setLetterStyles = (index) => {
         const letterStyles = {
             backgroundColor: "",
             borderBottom: "3px solid #f1f1f1",

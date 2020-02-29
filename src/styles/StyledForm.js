@@ -9,8 +9,8 @@ export const StyledSelect = styled.select`
     font-size: 1.2em;
     border: none;
     background: #1a1a1a;
-`;
 
-export const StyledOption = styled.option`
-    padding: 10px;
+    option {
+        padding: 10px;
+    }
 `;

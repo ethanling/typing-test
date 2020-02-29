@@ -9,9 +9,9 @@ const StatsDisplay = () => {
     const determineWordsPerMin = () => {
         let wordCount = 0;
         // adds word for at each space typed in history
-        // TODO: MAKE THIS BETTER
+        // TODO: MAKE THIS BETTER FOOL
         for (let i = 0; i < history.length; i++) {
-            if (history[i] === " ") {
+            if (history[i] === " " && matches[i] === true) {
                 wordCount++;
             }
         }

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { allTests } from '../allTests';
 import { StateContext } from "../context/StateProvider";
 import { StyledTestContainer } from "../styles/StyledTest";
-import { StyledSelect, StyledOption } from "../styles/StyledForm";
+import { StyledSelect } from "../styles/StyledForm";
 
 const TestPicker = () => {
     const [, dispatch] = useContext(StateContext);
@@ -24,9 +24,9 @@ const TestPicker = () => {
         <StyledTestContainer>
             Pick Test:
             <StyledSelect name={"Choose Topic"} onChange={handleChange}>
-                <StyledOption value="">Choose Topic</StyledOption>
+                <option value="">Choose Topic</option>
                 {allTests.map((a, i) => (
-                    <StyledOption key={i} value={a.test.name}>{a.test.name}</StyledOption>
+                    <option key={i} value={a.test.name}>{a.test.name}</option>
                 ))}
             </StyledSelect>
         </StyledTestContainer>
