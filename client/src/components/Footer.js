@@ -4,7 +4,11 @@ import { StyledFooter, StyledFooterLink } from "../styles/StyledFooter";
 const Footer = () => {
     return (
         <StyledFooter>
-            Made by{" "}
+            Built with{" "}
+            <span role="img" aria-label="coffee">
+                ☕
+            </span>{" "}
+            by{" "}
             <StyledFooterLink href="https://ethanling.com">
                 Ethan Ling
             </StyledFooterLink>{" "}

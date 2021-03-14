@@ -7,7 +7,7 @@ const StatsDisplay = () => {
     const [{ history, matches, stats }, dispatch] = useContext(StateContext);
 
     const determineWordsPerMin = () => {
-        let wordCount = 0;
+        let wordCount = 1;
         // adds word for at each space typed in history
         // TODO: MAKE THIS BETTER FOOL
         for (let i = 0; i < history.length; i++) {

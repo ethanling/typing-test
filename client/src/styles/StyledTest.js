@@ -12,7 +12,7 @@ export const StyledTestDisplay = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 50vw;
+    width: 720px;
 `;
 
 export const StyledToolBar = styled.div`
@@ -25,29 +25,20 @@ export const StyledToolBar = styled.div`
 `;
 
 export const StyledTestText = styled.div`
-    font-family: "Courier Prime", "Courier New", Courier, monospace;
+    font-size: 30px;
     font-weight: bold;
-    font-size: 2em;
     color: #1d2226;
-    background: #f1f1f1;
-    padding: 20px;
+    background: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 3px 0 #9e9e9e;
+    padding: 20px; 
+    border: 1px solid rgba(0, 0, 0, 0.2);
 `;
 
-export const StyledLetter = styled.span`
-    margin: 2px 2px 0px 2px;
-    padding: 2px;
-    border-radius: 4px;
-    white-space: pre-wrap;
-    line-height: 2em;
-    /* font-weight: bold; */
-`;
 
 export const StyledClockText = styled.span`
     font-family: "Courier Prime", "Courier New", Courier, monospace;
     font-weight: bold;
-    flex: 1;\
+    flex: 1;
     font-size: 1.4em;
     color: #f1f1f1;
     display: flex;

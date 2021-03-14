@@ -9,6 +9,8 @@ export const StyledSelect = styled.select`
     font-size: 1.2em;
     border: none;
     background: #1a1a1a;
+    font-family: "Roboto Mono", monospace;
+    font-weight: bold;
 
     option {
         padding: 10px;

@@ -1,34 +1,39 @@
 import React, { useContext } from "react";
+import styled from "styled-components";
 import { StateContext } from "../context/StateProvider";
-import { StyledTestText, StyledLetter } from "../styles/StyledTest";
+import { StyledTestText } from "../styles/StyledTest";
+
+const StyledLetter = styled.span`
+    white-space: pre-wrap;
+    line-height: 2em;
+    /* font-weight: bold; */
+`;
 
 const Letter = () => {
-    const [{ test, matches, history}] = useContext(StateContext);
+    const [{ test, matches, history }] = useContext(StateContext);
 
     const testTextArr = test.text.split("");
 
     const setLetterStyles = (index) => {
         const letterStyles = {
-            backgroundColor: "",
-            borderBottom: "3px solid #f1f1f1",
-            borderBottomLeftRadius: "4px",
-            borderBottomRightRadius: "4px"
+            opacity: ".4",
+            borderLeft: "4px solid #fff",
+            transition: "opacity .1s",
         };
 
         if (matches[index] && index < matches.length) {
-            letterStyles.backgroundColor = "#81c970";
-            letterStyles.backgroundImage =
-                "radial-gradient( circle 613px at 24.5% 36%,  rgba(165,233,138,1) 0%, #bbb 90% )";
+            letterStyles.color = "#81c970";
+            letterStyles.opacity = "1";
+            letterStyles.color = "#423c3c";
         } else if (!matches[index] && index < matches.length) {
-            letterStyles.backgroundColor = "#e2615f";
+            letterStyles.color = "#e2615f";
+            letterStyles.opacity = ".8";
         } else {
             letterStyles.backgroundColor = "";
         }
         // Determines cursor position
         if (history.length === index) {
-            letterStyles.borderBottom = "3px solid #000";
-            letterStyles.borderBottomLeftRadius = "0px";
-            letterStyles.borderBottomRightRadius = "0px";
+            letterStyles.borderLeft = "4px solid #59B1FC";
         }
 
         return letterStyles;

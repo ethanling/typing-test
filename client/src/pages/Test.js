@@ -5,6 +5,7 @@ import RestartButton from "../components/RestartButton";
 import StatsDisplay from "../components/StatsDisplay";
 import TestPicker from "../components/TestPicker";
 import { StateContext } from "../context/StateProvider";
+import { useWord } from '../hooks/useWord'
 import { StyledTestContainer, StyledToolBar } from "../styles/StyledTest";
 import { StyledStatsContainer } from "../styles/StyledStats";
 
@@ -26,6 +27,9 @@ const StatsView = () => (
 
 const Test = () => {
     const [{ isComplete, test }] = useContext(StateContext);
+
+    const word = useWord();
+    console.log(word)
 
     return test.text.length === 0 ? (
         <TestPicker />

@@ -5,9 +5,14 @@ export const StyledSplash = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    flex: 1;
 
     h1 {
-        font-size: 7em;
+        font-size: 10em;
+        position: abosolute;
+        top: 0;
+        color: #1c1c1c;
     }
 
     p {

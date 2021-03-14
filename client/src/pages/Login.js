@@ -21,7 +21,7 @@ const StyledLinkContainer = styled.div`
 `;
 
 const StyledLink = styled(Link)`
-    text-decoration: underline;
+    text-decoration: none;
     color: #fafafa;
     display: block;
     margin-bottom: 1em;

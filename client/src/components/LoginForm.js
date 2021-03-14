@@ -3,12 +3,14 @@ import styled from "styled-components";
 import Button from "../components/Button";
 
 const StyledLoginWrapper = styled.div`
+    padding-bottom: 2em;
     h2 {
-        font-size: 3em;
+        display: inline-block;
+        whitespace: nowrap;
+        font-size: 5em;
         margin: 0;
-        padding: 20px;
         /* color: #1a1a1a; */
-        opacity: .6;
+        opacity: 0.6;
     }
 `;
 
@@ -52,7 +54,6 @@ const StyledLabel = styled.label`
 const LoginForm = ({ action }) => {
     return (
         <StyledLoginWrapper>
-            <h2>Sign In</h2>
             <StyledLoginForm onSubmit={action}>
                 <StyledRow>
                     <StyledLabel>Email</StyledLabel>
@@ -70,7 +71,6 @@ const LoginForm = ({ action }) => {
                         placeholder="password"
                     />
                 </StyledRow>
-                <br />
                 <StyledRow>
                     <Button type="submit" text="Log In" />
                 </StyledRow>
