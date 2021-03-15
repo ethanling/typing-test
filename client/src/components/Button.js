@@ -5,10 +5,10 @@ const StyledButton = styled.button`
     border: none;
     font-family: "Roboto Mono", monospace;
     font-size: 1em;
-    color: #f1f1f1;
+    color: ${(props) => (props.dark ? "#f1f1f1" : "#2c2c2c")};
     padding: 10px 15px 10px 15px;
     border-radius: 8px;
-    background: #2c2c2c;
+    background: ${(props) => (props.dark ? "#2c2c2c" : "")};
     transition: all 0.2s ease;
     font-weight: bold;
 
@@ -20,9 +20,10 @@ const StyledButton = styled.button`
     }
 `;
 
-const Button = ({ action, text, textSize }) => (
-    <StyledButton onClick={action} style={{ fontSize: textSize }}>
-        {text}
+const Button = ({ action, children, text, textSize, dark }) => (
+    <StyledButton onClick={action} dark={dark} style={{ fontSize: textSize }}>
+        { text }
+        { children }
     </StyledButton>
 );
 

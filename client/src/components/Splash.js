@@ -4,7 +4,7 @@ import { StyledSplash } from '../styles/StyledSplash';
 const Splash = ({ children }) => {
     return (
         <StyledSplash>
-            <h1>Typing Test</h1>
+            <h1>Becoming a better typist takes: </h1>
             {children}
         </StyledSplash>
     );

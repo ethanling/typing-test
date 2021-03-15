@@ -7,6 +7,13 @@ const StyledLetter = styled.span`
     white-space: pre-wrap;
     line-height: 2em;
     /* font-weight: bold; */
+    border-left: 4px solid #fff;
+
+    @keyframes blink {
+        0% {
+            border-color: #59B1FC;
+        }
+    }
 `;
 
 const Letter = () => {
@@ -33,7 +40,10 @@ const Letter = () => {
         }
         // Determines cursor position
         if (history.length === index) {
-            letterStyles.borderLeft = "4px solid #59B1FC";
+            letterStyles.borderLeftWidth = "4px";
+            letterStyles.borderLeftStyle = "solid"
+            letterStyles.borderLeftColor = "#fff"
+            letterStyles.animation = "blink .5s step-end infinite alternate";
         }
 
         return letterStyles;

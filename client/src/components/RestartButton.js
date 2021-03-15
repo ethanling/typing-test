@@ -9,7 +9,14 @@ const RestartButton = ({ text }) => {
         dispatch({ type: "reset" });
     };
 
-    return <Button action={resetState} textSize={'1.4em'} text={text ? text : "Restart"} />;
+    return (
+        <Button
+            action={resetState}
+            dark={text ? true : false}
+            textSize={"1.4em"}
+            text={text ? text : "Restart"}
+        />
+    );
 };
 
 export default RestartButton;

@@ -5,6 +5,17 @@ import LogOutButton from "./LogOutButton";
 import Button from "./Button";
 import { StyledToolBar, StyledLogo } from "../styles/StyledToolbar";
 
+const NoCurrentUser = () => (
+    <div>
+        <Link to={"/sign-up"}>
+            <Button text={"Sign Up"} dark={true}/>
+        </Link>
+        <Link to={"/login"}>
+            <Button text={"Log In"} />
+        </Link>
+    </div>
+);
+
 const ToolBar = () => {
     const { currentUser } = useContext(AuthContext);
 
@@ -16,13 +27,7 @@ const ToolBar = () => {
                     <span className="highlight">Type</span>
                 </Link>
             </StyledLogo>
-            {currentUser ? (
-                <LogOutButton />
-            ) : (
-                <Link to={"/login"}>
-                    <Button text={"Sign In"} />
-                </Link>
-            )}
+            {currentUser ? <LogOutButton /> : <NoCurrentUser />}
         </StyledToolBar>
     );
 };

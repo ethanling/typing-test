@@ -18,7 +18,6 @@ export const StyledStatsWrapper = styled.div`
     border-radius: 8px;
 
     p {
-        font-family: "Courier Prime","Courier New", Courier, monospace;
         font-size: 1.3em;
         font-weight: bold;
     }

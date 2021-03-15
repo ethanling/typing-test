@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const StyledApp = styled.div`
     min-height: 100vh;
     min-width: 100vw;
+    max-width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,6 +12,6 @@ export const StyledApp = styled.div`
     position: relative;
     background: #f1f1f1;
     z-index: 0;
-    padding: 0;
+    padding-bottom: 3em;
     overflow-x: hidden;
 `;

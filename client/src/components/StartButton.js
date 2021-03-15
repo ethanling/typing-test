@@ -4,7 +4,7 @@ import Button from './Button';
 
 const StartButton = () => (
         <Link to="/test">
-            <Button text="Begin" textSize="2em" />
+            <Button text="Begin" dark={true} textSize="3em" />
         </Link>
 );
 

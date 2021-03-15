@@ -43,7 +43,7 @@ const StatsDisplay = () => {
         <>
             <StyledStatsHeader>Test Complete!</StyledStatsHeader>
             <StyledStatsWrapper>
-                <p>Words Per Minute: {stats.wpm}</p>
+                <p>WPM: {stats.wpm}</p>
                 <p>Accuracy: {stats.accuracy + "%"}</p>
                 <RestartButton text={'Try Again'} />
             </StyledStatsWrapper>

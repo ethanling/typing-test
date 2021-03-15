@@ -1,17 +1,18 @@
 import styled from 'styled-components';
+import bg from '../images/keyboard-closeup.svg';
 
 export const StyledSplash = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
     position: relative;
     flex: 1;
+    width: 100vw;
 
     h1 {
-        font-size: 10em;
-        position: abosolute;
-        top: 0;
+        font-size: 3em;
+        max-width: 90vw;
         color: #1c1c1c;
     }
 
