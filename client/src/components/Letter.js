@@ -8,12 +8,6 @@ const StyledLetter = styled.span`
     line-height: 2em;
     /* font-weight: bold; */
     border-left: 4px solid #fff;
-
-    @keyframes blink {
-        0% {
-            border-color: #59B1FC;
-        }
-    }
 `;
 
 const Letter = () => {
@@ -24,7 +18,9 @@ const Letter = () => {
     const setLetterStyles = (index) => {
         const letterStyles = {
             opacity: ".4",
-            borderLeft: "4px solid #fff",
+            borderLeftWidth: "4px",
+            borderLeftStyle: 'solid',
+            borderLeftColor: '#fff',
             transition: "opacity .1s",
         };
 
@@ -40,10 +36,7 @@ const Letter = () => {
         }
         // Determines cursor position
         if (history.length === index) {
-            letterStyles.borderLeftWidth = "4px";
-            letterStyles.borderLeftStyle = "solid"
-            letterStyles.borderLeftColor = "#fff"
-            letterStyles.animation = "blink .5s step-end infinite alternate";
+            letterStyles.borderLeftColor = "#59B1FC";
         }
 
         return letterStyles;
