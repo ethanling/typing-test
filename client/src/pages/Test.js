@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import { useEffect, useContext } from "react";
 import TestDisplay from "../components/TestDisplay";
 import Clock from "../components/Clock";
 import RestartButton from "../components/RestartButton";
 import StatsDisplay from "../components/StatsDisplay";
-import TestPicker from "../components/TestPicker";
+import { useWord } from "../hooks/useWord";
 import { StateContext } from "../context/StateProvider";
-import { useWord } from '../hooks/useWord'
 import { StyledTestContainer, StyledToolBar } from "../styles/StyledTest";
 import { StyledStatsContainer } from "../styles/StyledStats";
 
@@ -26,18 +25,26 @@ const StatsView = () => (
 );
 
 const Test = () => {
-    const [{ isComplete, test }] = useContext(StateContext);
+    const [{ isComplete }, dispatch] = useContext(StateContext);
 
-    const word = useWord();
-    console.log(word)
+    const { allWords, isLoading } = useWord();
 
-    return test.text.length === 0 ? (
-        <TestPicker />
-    ) : !isComplete ? (
-        <TestView />
-    ) : (
-        <StatsView />
-    );
+    const setTestText = (arr) => {
+        const testObj = {
+            text: arr.join(" "),
+        };
+
+        dispatch({ type: "setTest", testObj: testObj });
+        return testObj;
+    };
+
+    useEffect(() => {
+        if (!isLoading && allWords) {
+            setTestText(allWords);
+        }
+    }, [isLoading]);
+
+    return !isComplete && !isLoading ? <TestView /> : <StatsView />;
 };
 
 export default Test;

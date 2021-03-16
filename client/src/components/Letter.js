@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { StateContext } from "../context/StateProvider";
 import { StyledTestText } from "../styles/StyledTest";
@@ -12,15 +12,16 @@ const StyledLetter = styled.span`
 
 const Letter = () => {
     const [{ test, matches, history }] = useContext(StateContext);
+    const [textArr, setTextArr] = useState();
 
-    const testTextArr = test.text.split("");
+    const str = test;
 
     const setLetterStyles = (index) => {
         const letterStyles = {
             opacity: ".4",
             borderLeftWidth: "4px",
-            borderLeftStyle: 'solid',
-            borderLeftColor: '#fff',
+            borderLeftStyle: "solid",
+            borderLeftColor: "#fff",
             transition: "opacity .1s",
         };
 
@@ -43,14 +44,9 @@ const Letter = () => {
     };
 
     return (
-        <StyledTestText>
-            {testTextArr.map((letter, i) => (
-                <StyledLetter key={i} style={setLetterStyles(i)}>
-                    {letter}
-                </StyledLetter>
-            ))}
+        <StyledTestText>{console.log(test.text)}
         </StyledTestText>
-    );
+    )
 };
 
 export default Letter;

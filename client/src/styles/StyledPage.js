@@ -15,3 +15,16 @@ export const StyledApp = styled.div`
     padding-bottom: 3em;
     overflow-x: hidden;
 `;
+
+export const Col = styled.div`
+    display: flex;
+    flex-direction: column;
+    background: ${props => props.background};
+`
+
+export const Row = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: ${props => props.background};
+`
